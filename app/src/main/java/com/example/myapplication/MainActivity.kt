@@ -53,19 +53,26 @@ class MainActivity : AppCompatActivity() {
                 stackInt.push(str.toInt())
             } else {
                 if(stackInt.empty()){
+                    arr.clear()
                     return "ERR"
                 }
                 val num2 = stackInt.pop()
                 if(str[0] == '/' && num2 == 0){
+                    while(!stackInt.empty()){
+                        stackInt.pop()
+                    }
+                    arr.clear()
                     return "ERR"
                 }
                 if(stackInt.empty()){
+                    arr.clear()
                     return "ERR"
                 }
                 val num1 = stackInt.pop()
                 stackInt.push(calcResult(num1, str[0], num2))
             }
         }
+        arr.clear()
         result = stackInt.pop()
         return result.toString()
     }
@@ -212,15 +219,20 @@ class MainActivity : AppCompatActivity() {
             inputTxt.text = outputTxt
         }
         findViewById<Button>(R.id.btn_equal).setOnClickListener{
-            outputCalc += outputTxt
-            calcTxt.text = outputCalc
-            // infix to postfix
-            addStackAndList('#', outputTxt.toInt())
-            // postfix to value
-            outputTxt = calcTheNumber(outputCalc)
-            inputTxt.text = outputTxt
-            if(outputTxt == "ERR"){
+            if(outputTxt == ""){
+                inputTxt.text = "ERR"
                 outputTxt = "0"
+            } else {
+                outputCalc += outputTxt
+                calcTxt.text = outputCalc
+                // infix to postfix
+                addStackAndList('#', outputTxt.toInt())
+                // postfix to value
+                outputTxt = calcTheNumber(outputCalc)
+                inputTxt.text = outputTxt
+                if(outputTxt == "ERR"){
+                    outputTxt = "0"
+                }
             }
             outputCalc = ""
         }
