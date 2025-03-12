@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun calcTheNumber(text: String): String {
+    fun calcTheNumber(): String {
         var result = 0
         val stackInt = Stack<Int>()
         for(str in arr){
@@ -169,32 +169,40 @@ class MainActivity : AppCompatActivity() {
             inputTxt.text = outputTxt
         }
         findViewById<Button>(R.id.btn_add).setOnClickListener{
-            outputCalc += outputTxt + "+"
-            addStackAndList('+', outputTxt.toInt())
-            outputTxt = ""
-            calcTxt.text = outputCalc
-            inputTxt.text = ""
+            if(outputTxt != "") {
+                outputCalc += outputTxt + "+"
+                addStackAndList('+', outputTxt.toInt())
+                outputTxt = ""
+                calcTxt.text = outputCalc
+                inputTxt.text = ""
+            }
         }
         findViewById<Button>(R.id.btn_sub).setOnClickListener{
-            outputCalc += outputTxt + "-"
-            addStackAndList('-', outputTxt.toInt())
-            outputTxt = ""
-            calcTxt.text = outputCalc
-            inputTxt.text = ""
+            if(outputTxt != "")  {
+                outputCalc += outputTxt + "-"
+                addStackAndList('-', outputTxt.toInt())
+                outputTxt = ""
+                calcTxt.text = outputCalc
+                inputTxt.text = ""
+            }
         }
         findViewById<Button>(R.id.btn_mul).setOnClickListener{
-            outputCalc += outputTxt + "x"
-            addStackAndList('x', outputTxt.toInt())
-            outputTxt = ""
-            calcTxt.text = outputCalc
-            inputTxt.text = ""
+            if(outputTxt != "")  {
+                outputCalc += outputTxt + "x"
+                addStackAndList('x', outputTxt.toInt())
+                outputTxt = ""
+                calcTxt.text = outputCalc
+                inputTxt.text = ""
+            }
         }
         findViewById<Button>(R.id.btn_div).setOnClickListener{
-            outputCalc += outputTxt + "/"
-            addStackAndList('/', outputTxt.toInt())
-            outputTxt = ""
-            calcTxt.text = outputCalc
-            inputTxt.text = ""
+            if(outputTxt != "")  {
+                outputCalc += outputTxt + "/"
+                addStackAndList('/', outputTxt.toInt())
+                outputTxt = ""
+                calcTxt.text = outputCalc
+                inputTxt.text = ""
+            }
         }
         findViewById<Button>(R.id.btn_back).setOnClickListener{
             outputTxt = outputTxt.dropLast(1)
@@ -228,7 +236,7 @@ class MainActivity : AppCompatActivity() {
                 // infix to postfix
                 addStackAndList('#', outputTxt.toInt())
                 // postfix to value
-                outputTxt = calcTheNumber(outputCalc)
+                outputTxt = calcTheNumber()
                 inputTxt.text = outputTxt
                 if(outputTxt == "ERR"){
                     outputTxt = "0"
