@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="86dp"
+        android:layout_height="53dp"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_inputName"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_inputName"
+        app:layout_constraintVertical_bias="0.098" />
+
+    <EditText
+        android:id="@+id/txt_inputName"
+        android:layout_width="213dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="Họ và tên"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.097" />
+
+    <EditText
+        android:id="@+id/txt_inputMSSV"
+        android:layout_width="213dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="MSSV"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/txt_inputName"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txt_inputName"
+        app:layout_constraintTop_toBottomOf="@+id/txt_inputName"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <ListView
+        android:id="@+id/txtView"
+        android:layout_width="363dp"
+        android:layout_height="497dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.297"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
